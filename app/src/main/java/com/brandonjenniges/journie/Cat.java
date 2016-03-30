@@ -1,4 +1,4 @@
-package com.brandonjenniges.cats;
+package com.brandonjenniges.journie;
 
 import android.content.Context;
 

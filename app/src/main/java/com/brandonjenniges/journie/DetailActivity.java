@@ -1,4 +1,4 @@
-package com.brandonjenniges.cats;
+package com.brandonjenniges.journie;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -22,7 +22,6 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -60,7 +59,7 @@ public class DetailActivity extends Activity {
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
-        mCat = PlaceHolderData.placeList().get(getIntent().getIntExtra(Cat.EXTRA_KEY, 0));
+        mCat = CatData.catList().get(getIntent().getIntExtra(Cat.EXTRA_KEY, 0));
 
         mAddButton.setImageResource(R.drawable.icn_morph_reverse);
 

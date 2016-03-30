@@ -1,4 +1,4 @@
-package com.brandonjenniges.cats;
+package com.brandonjenniges.journie;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -22,14 +24,16 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
     Context context;
     OnItemClickListener itemClickListener;
+    ArrayList<Cat>cats;
 
-    public MainActivityAdapter(Context context) {
+    public MainActivityAdapter(Context context, ArrayList<Cat> cats) {
         this.context = context;
+        this.cats = cats;
     }
 
     @Override
     public int getItemCount() {
-        return PlaceHolderData.placeList().size();
+        return cats.size();
     }
 
     @Override
@@ -40,7 +44,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        final Cat cat = PlaceHolderData.placeList().get(position);
+        final Cat cat = cats.get(position);
 
         holder.catName.setText(cat.getName());
         Picasso.with(context).load(cat.getImageResourceId(context)).into(holder.catImage);
@@ -51,6 +55,11 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
             int bgColor = palette.getMutedColor(ContextCompat.getColor(context, android.R.color.black));
             holder.catNameHolder.setBackgroundColor(bgColor);
         });
+    }
+
+    public void setCats(ArrayList<Cat> cats) {
+        this.cats = cats;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

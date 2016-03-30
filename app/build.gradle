@@ -40,6 +40,7 @@ dependencies {
     //RxJava
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
 
     //Butter Knife
     compile 'com.jakewharton:butterknife:7.0.1'
