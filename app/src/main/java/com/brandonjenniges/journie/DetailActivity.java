@@ -59,7 +59,7 @@ public class DetailActivity extends Activity {
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
-        mCat = CatData.catList().get(getIntent().getIntExtra(Cat.EXTRA_KEY, 0));
+        mCat = getIntent().getParcelableExtra(Cat.EXTRA_KEY);
 
         mAddButton.setImageResource(R.drawable.icn_morph_reverse);
 

@@ -62,6 +62,10 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         notifyDataSetChanged();
     }
 
+    public ArrayList<Cat> getCats() {
+        return cats;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.mainHolder) LinearLayout catHolder;
         @Bind(R.id.cat_name_holder_ll) LinearLayout catNameHolder;
@@ -77,7 +81,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         @Override
         public void onClick(View v) {
             if (itemClickListener != null) {
-                itemClickListener.onItemClick(itemView, getPosition());
+                itemClickListener.onItemClick(itemView, getLayoutPosition());
             }
         }
 

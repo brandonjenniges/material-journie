@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(View v, int position) {
             Intent transitionIntent = new Intent(getApplicationContext(), DetailActivity.class);
-            transitionIntent.putExtra(Cat.EXTRA_KEY, position);
+            transitionIntent.putExtra(Cat.EXTRA_KEY, mAdapter.getCats().get(position));
 
             ImageView catImage = (ImageView) v.findViewById(R.id.catImage);
             LinearLayout catNameHolder = (LinearLayout) v.findViewById(R.id.cat_name_holder_ll);
